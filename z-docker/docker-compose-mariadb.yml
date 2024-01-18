@@ -1,0 +1,28 @@
+version: '2'
+
+services:
+  mariadb:
+    image: mariadb
+    container_name: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: sakila
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: 123456
+    restart: on-failure
+    ports:
+      - '3306:3306'
+    #    command: ['--lower_case_table_names=1']
+    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci', '--lower_case_table_names=1']
+
+#  mariadb-slave:
+#    image: mariadb
+#    environment:
+#      MYSQL_ROOT_PASSWORD: 123456
+#      MYSQL_DATABASE: sakila
+#      MYSQL_USER: admin
+#      MYSQL_PASSWORD: 123456
+#    restart: on-failure
+#    ports:
+#      - "3309:3306"
+#    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci', '--lower_case_table_names=1']

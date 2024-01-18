@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:latest
+    container_name: mssql
+    hostname: mssql
+    restart: always
+    environment:
+      SA_PASSWORD: A!123456
+      ACCEPT_EULA: Y
+#    volumes:
+#      - mssqlvolume:/var/opt/mssql/data # thư mục lưu DB
+#      - ./bk:/var/opt/mssql/backup      # thư  mục chứa file backup
+    ports:
+      - '1433:1433'
