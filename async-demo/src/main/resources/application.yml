@@ -1,0 +1,46 @@
+server:
+  port: 9195
+  servlet.context-path: /mariadb
+  undertow.max-http-post-size: 0
+  error:
+    include-message: always
+spring:
+  application.name: mariadb
+  threads.virtual.enabled: true
+  main.allow-bean-definition-overriding: true
+  jackson.default-property-inclusion: non_absent
+  freemarker.check-template-location: false
+  servlet.multipart.max-file-size: 5MB
+  servlet.multipart.max-request-size: 5MB
+  servlet.multipart.resolve-lazily: true
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+#        format_sql: true
+        #        query:
+        #          plan_cache_max_size: 1
+        #          plan_parameter_metadata_max_size: 1
+        generate_statistics: true
+        jdbc:
+          batch_size: 1000
+          time_zone: UTC
+        order_inserts: true
+        order_updates: true
+        use-new-id-generator-mappings: true
+  datasource:
+    url: jdbc:mariadb://localhost:3306/sakila
+    username: root
+    password: 123456
+
+logging:
+  level:
+    root: INFO
+    web: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.web.FilterChainProxy: DEBUG
+    org.springframework.web.client.RestTemplate: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.boot.autoconfigure: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE

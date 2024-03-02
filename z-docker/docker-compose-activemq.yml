@@ -2,7 +2,8 @@ version: '2'
 
 services:
   activemq:
-    image: 'rmohr/activemq'
+#    image: 'rmohr/activemq'
+    image: 'symptoma/activemq:latest'
     container_name: activemq
     ports:
       - '61616:61616'

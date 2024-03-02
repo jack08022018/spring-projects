@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 @Slf4j
 @Service
@@ -40,5 +41,15 @@ public class ApiServiceImpl implements ApiService {
     public <T> T getData() {
         return (T) rentalNewRepository.findById(198102).get();
     }
+
+//    CompletableFuture<String> task = new CompletableFuture<String>();
+//
+//    public String getData() {
+//        return task.get();
+//    }
+
+//    public void consume() {
+//        task.complete("success");
+//    }
 
 }

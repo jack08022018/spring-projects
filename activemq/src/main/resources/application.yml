@@ -1,0 +1,32 @@
+server:
+  port: 9196
+  servlet.context-path: /activemq
+  undertow.max-http-post-size: 0
+  error:
+    include-message: always
+spring:
+  application.name: activemq
+  threads.virtual.enabled: true
+  main.allow-bean-definition-overriding: true
+  jackson.default-property-inclusion: non_absent
+  freemarker.check-template-location: false
+  servlet.multipart.max-file-size: 5MB
+  servlet.multipart.max-request-size: 5MB
+  servlet.multipart.resolve-lazily: true
+
+jms:
+  activemq:
+    broker-url: tcp://localhost:61616
+    listener.auto-startup: true
+
+logging:
+  level:
+    root: INFO
+    web: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.web.FilterChainProxy: DEBUG
+    org.springframework.web.client.RestTemplate: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.boot.autoconfigure: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
